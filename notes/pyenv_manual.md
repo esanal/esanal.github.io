@@ -69,9 +69,10 @@ jupyter notebook
 5. Go to localhost:8888 to access the notebook from local machine.
 
 6. List notebooks running and close.
-    '''bash
+    ```bash
     jupyter notebook list
     #get pid and kill
     lsof -n -i4TCP:[port-number]
     kill -9 [PID]
-    ''' 
+    ```
+ 
