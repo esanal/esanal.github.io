@@ -35,7 +35,7 @@ virtualenv -p python3.6 py_36_env
 # Activate it if needed
 source py_36_env/bin/activate
 pip install ipykernel
-#install the kerenel (ONLY IMPORTANT STEP)
+#install the kernel (ONLY IMPORTANT STEP)
 python -m ipykernel install --user --name=py_36_env
 jupyter notebook
 ```
@@ -67,3 +67,11 @@ jupyter notebook
         `-L` tells to forward out local (8888) to remote (9000) port
 
 5. Go to localhost:8888 to access the notebook from local machine.
+
+6. List notebooks running and close.
+    '''bash
+    jupyter notebook list
+    #get pid and kill
+    lsof -n -i4TCP:[port-number]
+    kill -9 [PID]
+    ''' 
