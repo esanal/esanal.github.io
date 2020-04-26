@@ -49,16 +49,21 @@ jupyter notebook
 2. Setup your password for notebook (jupyter lab access)
     ```bash
     jupyter notebook password
+    #or
+    jupyter lab --ip 0.0.0.0 --no-browser
     ```
 
 3. Set notebook port and start without browser
     ```bash
     jupyter lab --port=9000 --no-browser &
+    #or skip
     ```
 
 4. Connect the server by creating a tunnel between running notebook on server and our machine
     ```bash
     ssh -N -f -L 8888:localhost:9000 user@server
+    #or 
+    ssh user@server -L 8888(localport):remote_ws:8888(remoteport)
     ```
         `-N` is for no remote process is run just connect ports.
 
@@ -74,5 +79,26 @@ jupyter notebook
     #get pid and kill
     lsof -n -i4TCP:[port-number]
     kill -9 [PID]
+    ```
+
+##  Autosave .html and .py of notebooks
+    ```bash
+    #Generate the config:
+    jupyter lab --generate-config
+    ```
+    Insert the code snippet below to config.
+    ```bash
+    import os
+    from subprocess import check_call
+
+    def post_save(model, os_path, contents_manager):
+        """post-save hook for converting notebooks to .py and .html files."""
+        if model['type'] != 'notebook':
+            return # only do this for notebooks
+        d, fname = os.path.split(os_path)
+        check_call(['jupyter', 'nbconvert', '--to', 'script', fname], cwd=d)
+        check_call(['jupyter', 'nbconvert', '--to', 'html', fname], cwd=d)
+
+    c.FileContentsManager.post_save_hook = post_save
     ```
  
