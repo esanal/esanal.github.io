@@ -40,7 +40,7 @@ python -m ipykernel install --user --name=py_36_env
 jupyter notebook
 ```
 
-#  Jupyter lab in remote server
+##  Jupyter lab in remote server
 
 1. First, connect to the server
     ```bash
@@ -82,12 +82,14 @@ jupyter notebook
     ```
 
 ##  Autosave .html and .py of notebooks
-    ```bash
+```bash
     #Generate the config:
     jupyter lab --generate-config
-    ```
+```
+
     Insert the code snippet below to config.
-    ```bash
+
+```bash
     import os
     from subprocess import check_call
 
@@ -100,5 +102,5 @@ jupyter notebook
         check_call(['jupyter', 'nbconvert', '--to', 'html', fname], cwd=d)
 
     c.FileContentsManager.post_save_hook = post_save
-    ```
+```
  
