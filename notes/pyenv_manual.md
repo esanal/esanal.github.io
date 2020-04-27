@@ -74,33 +74,33 @@ jupyter notebook
 5. Go to localhost:8888 to access the notebook from local machine.
 
 6. List notebooks running and close.
-    ```bash
-    jupyter notebook list
-    #get pid and kill
-    lsof -n -i4TCP:[port-number]
-    kill -9 [PID]
-    ```
+```bash
+jupyter notebook list
+#get pid and kill
+lsof -n -i4TCP:[port-number]
+kill -9 [PID]
+```
 
 ##  Autosave .html and .py of notebooks
 ```bash
-    #Generate the config:
-    jupyter lab --generate-config
+#Generate the config:
+jupyter lab --generate-config
 ```
 
-    Insert the code snippet below to config.
+Insert the code snippet below to config.
 
-```bash
-    import os
-    from subprocess import check_call
+```python
+import os
+from subprocess import check_call
 
-    def post_save(model, os_path, contents_manager):
-        """post-save hook for converting notebooks to .py and .html files."""
-        if model['type'] != 'notebook':
-            return # only do this for notebooks
-        d, fname = os.path.split(os_path)
-        check_call(['jupyter', 'nbconvert', '--to', 'script', fname], cwd=d)
-        check_call(['jupyter', 'nbconvert', '--to', 'html', fname], cwd=d)
+def post_save(model, os_path, contents_manager):
+    """post-save hook for converting notebooks to .py and .html files."""
+    if model['type'] != 'notebook':
+        return # only do this for notebooks
+    d, fname = os.path.split(os_path)
+    check_call(['jupyter', 'nbconvert', '--to', 'script', fname], cwd=d)
+    check_call(['jupyter', 'nbconvert', '--to', 'html', fname], cwd=d)
 
-    c.FileContentsManager.post_save_hook = post_save
+c.FileContentsManager.post_save_hook = post_save
 ```
  
