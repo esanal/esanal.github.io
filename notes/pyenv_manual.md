@@ -43,33 +43,31 @@ jupyter notebook
 ##  Jupyter lab in remote server
 
 1. First, connect to the server
-    ```bash
-    ssh user@server
-    ```
+```bash
+ssh user@server
+```
 2. Setup your password for notebook (jupyter lab access)
-    ```bash
-    jupyter notebook password
-    #or
-    jupyter lab --ip 0.0.0.0 --no-browser
-    ```
+```bash
+jupyter notebook password
+#or
+jupyter lab --ip 0.0.0.0 --no-browser
+```
 
 3. Set notebook port and start without browser
-    ```bash
-    jupyter lab --port=9000 --no-browser &
-    #or skip
-    ```
+```bash
+jupyter lab --port=9000 --no-browser &
+#or skip
+```
 
 4. Connect the server by creating a tunnel between running notebook on server and our machine
-    ```bash
-    ssh -N -f -L 8888:localhost:9000 user@server
-    #or 
-    ssh user@server -L 8888(localport):remote_ws:8888(remoteport)
-    ```
-        `-N` is for no remote process is run just connect ports.
-
-        `-f` running the ssh background
-
-        `-L` tells to forward out local (8888) to remote (9000) port
+```bash
+ssh -N -f -L 8888:localhost:9000 user@server
+#or 
+ssh user@server -L 8888(localport):remote_ws:8888(remoteport)
+```
+`-N` is for no remote process is run just connect ports.
+`-f` running the ssh background
+`-L` tells to forward out local (8888) to remote (9000) port
 
 5. Go to localhost:8888 to access the notebook from local machine.
 
@@ -81,14 +79,14 @@ lsof -n -i4TCP:[port-number]
 kill -9 [PID]
 ```
 
-##  Autosave .html and .py of notebooks
+##  Autosave .html and .py versions of jupyter notebook
+
+1. Generate the config file
 ```bash
-#Generate the config:
 jupyter lab --generate-config
 ```
 
-Insert the code snippet below to config.
-
+2. Insert the code snippet below to config.
 ```python
 import os
 from subprocess import check_call
