@@ -4,135 +4,22 @@
   <title>erdem</title>
   <meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css2?&family=Manrope&family=Open+Sans&family=Gentium+Book+Basic&family=Abril+Fatface&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css" media="screen"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <style>
-
-#navbar {
-  background-color: #3c401d;
-  overflow: hidden;
-  padding: 40px 20px;
-  transition: 0.6s;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 99;
-  border-bottom: 3px solid transparent;
-
-}
-
-#navbar a {
-  float: left;
-  color: #f2e8b9;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 35px;
-}
-
-#navbar #logo {
-  font-family: 'Abril Fatface', serif;
-  color: #f2e8b9;
-  font-size: 35px;
-  transition: 0.6s;
-}
-
-#navbar a:hover {
-color: #f2e8b9;
-}
-
-#navbar a.active {
-  border-bottom: 1px solid #cc4928;
-color:#f2e8b9;
-}
-
-#navbar-right {
-  font-family: 'Abril Fatface', serif;
-  float: right;
-  text-align: center;
-}
-    
-#main-part {
-  margin-top: 100px;
-  width: 80%;
-  font-size:20px;
-  }
-
-@media screen and (max-width: 580px) {
-  #navbar {
-    padding: 40px 10px !important;
-  }
-  #navbar a {
-    float: none;
-    display: block;
-    text-align: center;
-  }
-  #navbar-right {
-    float: none;
-    border-bottom: 1px solid transparent;
-    text-align: center;
-  }
- #main-part {
-    margin-top: 300px;
-    width: 80%;
-    font-size:20px;
-  }
-}
-
-.sidenav {
-  width: 130px;
-  position: fixed;
-  z-index: 1;
-  top: 20px;
-  left: 10px;
-  background: #eee;
-  overflow-x: hidden;
-  padding: 8px 0;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #2196F3;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #064579;
-}
-
 body {
     background-color: #cbced2;
     background-image: url("https://live.staticflickr.com/65535/49757174857_0a2bd8c4f4_k.jpg");
     background-position: 0 -350px; 
     color: #31303a;
     text-align: left;
-
 }
-
-
-  .section-title {
-    font-family: 'Abril Fatface', serif;
-    color: #31303a;
-    text-align: center;
-    margin-top: 80px;
-    margin-left: 0px;
-    margin-right: 0px;
-    overflow:hidden;
-    word-break: break-all;
-  }
-
-p {
-    word-wrap:break-word;
-    font-family: 'Manrope', cursive;
-}
-
-
 </style>
+
 </head>
 
 <body>
@@ -142,10 +29,10 @@ p {
 <div id="navbar">
   <a href="#home" id="logo">My Webpage</a>
   <div id="navbar-right">
-    <a href="#home">Home</a>
-    <a href="./blog.html">Blog</a>
+    <a href="../home.html">Home</a>
+    <a href="../blog/blog.html">Blog</a>
     <a href="#notes">Notes</a>
-    <a href="#about">About</a>
+    <a href="../about/about.html">About</a>
   </div>
 </div>
 
