@@ -4,3 +4,9 @@ Simple nbconvert command lets you to convert jupyter notebooks into report-like 
 ```bash
 jupyter nbconvert compare_bootstrap.ipynb --to pdf --no-input --no-prompt
 ```
+
+# Install packages in jupyter
+
+'''bash
+!{sys.executable} -m pip install pandas
+'''
